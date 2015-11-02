@@ -1,0 +1,164 @@
+CODE 1
+#  draw the figures illustrating maximum likelihood
+
+x<-c(1,3,4,6,8,9,12)
+y<-c(5,8,6,10,9,13,12)
+windows(14,6)
+par(mfrow=c(1,3))
+plot(x,y,pch=21,bg="blue",ylim=c(0,15))
+abline(0,0.6793,col="red")
+plot(x,y,pch=21,bg="blue",ylim=c(0,15))
+abline(8,0.6793,col="red")
+----------------------
+CODE 2
+# read data from a file called worms.csv to create a 
+# dataframe called worms
+
+worms <- read.csv("c:\\temp\\worms.csv")
+names(worms)
+
+attach(worms)
+worms
+
+# all rows, just columns 1 to 3
+----------------------
+CODE 3
+#  Chapter 3
+
+yvals <- read.csv("c:\\temp\\yvalues.csv")
+attach(yvals)
+hist(y)
+
+
+# arithmetic mean
+
+total <- sum(y)
+----------------------
+CODE 4
+#   Variance
+
+y <- c(13,7,5,12,9,15,6,11,9,7,12)
+plot(y,ylim=c(0,20))
+
+# range
+
+range(y)
+
+plot(1:11,y,ylim=c(0,20),pch=16,col="blue")
+----------------------
+CODE 5
+# single samples
+
+data <- read.csv("c:\\temp\\example.csv")
+attach(data)
+names(data)
+
+summary(y)
+
+boxplot(y)
+
+----------------------
+CODE 7
+# code 7   Regression
+
+
+# text figure
+
+plot(c(0,10),c(0,100),xlab="",ylab="",type="n")
+lines(c(0,10),c(80,10),lwd=2)
+
+# intercept = 80
+
+----------------------
+CODE 8
+
+# one-way anova
+
+oneway <- read.csv("c:\\temp\\oneway.csv")
+attach(oneway)
+names(oneway)
+
+plot(1:20,ozone,ylim=c(0,8),ylab="y",xlab="order",pch=21,bg="red")
+
+abline(h=mean(ozone),col="blue")
+----------------------
+CODE 9
+# analysis of covariance
+
+compensation <- read.csv("c:\\temp\\ipomopsis.csv")
+attach(compensation)
+names(compensation)
+
+plot(Root,Fruit,pch=16,col="blue")
+plot(Grazing,Fruit,col="lightgreen")
+
+# the wrong analysis (not controlling for initial size)
+----------------------
+CODE
+----------------------
+CODE 10
+# multiple regression
+
+ozone.pollution <- read.csv("c:\\temp\\ozone.data.csv")
+attach(ozone.pollution)
+names(ozone.pollution)
+
+pairs(ozone.pollution,panel=panel.smooth)
+
+library(mgcv)
+par(mfrow=c(2,2))
+----------------------
+CODE 11
+# generalised linear models
+
+# there is no R code in this chapter
+
+----------------------
+CODE 12
+#count data
+
+# regression
+
+clusters <- read.csv("c:\\temp\\clusters.csv")
+attach(clusters)
+names(clusters)
+
+plot(Distance,Cancers,pch=21,bg="lightblue")
+
+----------------------
+CODE 13
+# proportion data
+
+
+# logistic regression
+
+numbers <- read.csv("c:\\temp\\sexratio.csv")
+numbers
+
+attach(numbers)
+windows(7,4)
+----------------------
+CODE 14
+# binary response variables
+
+island <- read.csv("c:\\temp\\isolation.csv")
+attach(island)
+names(island)
+
+[1] "incidence" "area"      "isolation"
+
+model1 <- glm(incidence~area*isolation,binomial)
+
+----------------------
+CODE 15
+#  age at death data
+
+mortality <- read.csv("c:\\temp\\deaths.csv")
+attach(mortality)
+names(mortality)
+
+tapply(death,treatment,mean)
+
+tapply(death,treatment,var)
+
+----------------------
